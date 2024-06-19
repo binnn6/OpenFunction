@@ -277,6 +277,7 @@ func (r *GatewayReconciler) reconcileK8sGateway(gateway *networkingv1alpha1.Gate
 		r.k8sGateway.Annotations = make(map[string]string)
 	}
 	r.k8sGateway.Annotations[networkingv1alpha1.GatewayListenersAnnotation] = string(listenersAnnotation)
+	r.k8sGateway.Labels = gateway.Labels
 
 	for k, v := range gateway.Annotations {
 		r.k8sGateway.Annotations[k] = v
